@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Models.Proveedor>
+
+@{
+    ViewBag.Title = "Lista de Proveedores";
+}
+
+<h2>Lista de Proveedores</h2>
+
+<p>
+    <button>
+        @Html.ActionLink("Crear", "Create")
+    </button>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Nombre")
+        </th>
+        <th>
+            @Html.DisplayName("Dirección")
+        </th>
+        <th>
+            @Html.DisplayName("Teléfono")
+        </th>
+        <th>
+            @Html.DisplayName("Correo")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DireccionProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoProveedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CorreoProveedor)
+            </td>
+            <td>
+                <button>@Html.ActionLink("Editar", "Edit", new { id = item.IdProveedor })</button>
+                 |
+                <button>@Html.ActionLink("Borrar", "Delete", new { id = item.IdProveedor })</button>
+            </td>
+        </tr>
+    }
+
+</table>
